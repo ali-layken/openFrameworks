@@ -1166,7 +1166,7 @@ bool ofGstVideoUtils::setPipeline(string pipeline, ofPixelFormat pixelFormat, bo
 		pipeline + " ! appsink name=ofappsink enable-last-sample=0 caps=\"" + caps + "\"";
 
 	if (pixelFormat == OF_PIXELS_BGRX){
-		pixelFormat = OF_PIXELS_RGBA;
+		pixelFormat = OF_PIXELS_BGRA;
 	}
 
 	if((w==-1 || h==-1) || pixelFormat==OF_PIXELS_NATIVE || allocate(w,h,pixelFormat)){
