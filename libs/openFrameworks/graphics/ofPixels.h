@@ -133,6 +133,7 @@ enum ofPixelFormat: short{
 	///
 	/// \sa http://www.fourcc.org/yuv.php#UYVY
 	OF_PIXELS_UYVY=12,
+	OF_PIXELS_BGRX=13,
 
 	/// \brief A single channel pixel, typically used for the luma component of YUV.
 	OF_PIXELS_Y,

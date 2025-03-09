@@ -995,6 +995,8 @@ string	ofGstVideoUtils::getGstFormatName(ofPixelFormat format){
 		return "RGB";
 	case OF_PIXELS_BGR:
 		return "BGR";
+	case OF_PIXELS_BGRX:
+		return "BGRx";
 	default:
 		return "UNKNOWN";
 	}
@@ -1162,6 +1164,10 @@ bool ofGstVideoUtils::setPipeline(string pipeline, ofPixelFormat pixelFormat, bo
 
 	string pipeline_string =
 		pipeline + " ! appsink name=ofappsink enable-last-sample=0 caps=\"" + caps + "\"";
+
+	if (pixelFormat == OF_PIXELS_BGRX){
+		pixelFormat = OF_PIXELS_RGBA;
+	}
 
 	if((w==-1 || h==-1) || pixelFormat==OF_PIXELS_NATIVE || allocate(w,h,pixelFormat)){
 		return setPipelineWithSink(pipeline_string,"ofappsink",isStream);
