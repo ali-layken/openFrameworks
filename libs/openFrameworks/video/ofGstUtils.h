@@ -6,6 +6,7 @@
 #include "ofEvents.h"
 #include "ofThread.h"
 #include "ofVideoBaseTypes.h"
+#include "ofTexture.h"
 #define GST_DISABLE_DEPRECATED
 #include <gst/gst.h>
 #include <gst/gstpad.h>
