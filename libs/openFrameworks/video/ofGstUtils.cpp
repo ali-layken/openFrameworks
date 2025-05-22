@@ -499,8 +499,16 @@ void ofGstUtils::setPosition(float pct){
 }
 
 void ofGstUtils::setVolume(float volume){
-	gdouble gvolume = volume;
-	g_object_set(G_OBJECT(gstPipeline), "volume", gvolume, (void*)NULL);
+    gdouble gvolume = volume;
+
+    if(gstPipeline){
+        // Try to set volume only if the property exists
+        if(g_object_class_find_property(G_OBJECT_GET_CLASS(gstPipeline), "volume")){
+            g_object_set(G_OBJECT(gstPipeline), "volume", gvolume, nullptr);
+        } else {
+            ofLogWarning("ofGstUtils") << "Pipeline has no 'volume' property.";
+        }
+    }
 }
 
 void ofGstUtils::setLoopState(ofLoopType state){
