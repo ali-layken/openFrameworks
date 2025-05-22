@@ -1204,7 +1204,7 @@ bool ofGstVideoUtils::setPipeline(string pipeline, ofPixelFormat pixelFormat, bo
 	glContext = gst_gl_context_new_wrapped (glDisplay, (guintptr) ofGetGLXContext(),
 	    		  GST_GL_PLATFORM_GLX, GST_GL_API_OPENGL);
 
-	//g_object_set (G_OBJECT (glfilter), "other-context", glContext, NULL);
+	g_object_set (G_OBJECT (glfilter), "other-context", glContext, NULL);
 	// FIXME: this seems to be the way to add the context in 1.4.5
 	//
 	// GstBus * bus = gst_pipeline_get_bus (GST_PIPELINE(gstPipeline));
@@ -1220,7 +1220,7 @@ bool ofGstVideoUtils::setPipeline(string pipeline, ofPixelFormat pixelFormat, bo
 	glContext = gst_gl_context_new_wrapped (glDisplay, (guintptr) ofGetEGLContext(),
 	    		  GST_GL_PLATFORM_EGL, GST_GL_API_GLES2);
 
-	//g_object_set (G_OBJECT (glfilter), "other-context", glContext, NULL);
+	g_object_set (G_OBJECT (glfilter), "other-context", glContext, NULL);
 	// FIXME: this seems to be the way to add the context in 1.4.5
 	//
 	// GstBus * bus = gst_pipeline_get_bus (GST_PIPELINE(gstPipeline));
